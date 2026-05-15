@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مملكة حب محمد ومنة ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Romantic Login Screen -->
+    <div id="login-screen">
+        <div class="login-box glass-box">
+            <!-- Enhanced Realistic Bear -->
+            <div class="bear-container">
+                <div class="bear-speech" id="bear-speech">مش ببص والله! 🙈</div>
+                <svg viewBox="0 0 200 200" class="bear-svg">
+                    <defs>
+                        <radialGradient id="earGradient">
+                            <stop offset="0%" stop-color="#a0522d" />
+                            <stop offset="100%" stop-color="#8d5524" />
+                        </radialGradient>
+                    </defs>
+                    <!-- Ears -->
+                    <circle cx="60" cy="60" r="28" fill="url(#earGradient)" />
+                    <circle cx="140" cy="60" r="28" fill="url(#earGradient)" />
+                    <!-- Face -->
+                    <circle cx="100" cy="110" r="75" fill="#a0522d" stroke="#8d5524" stroke-width="2" />
+                    <!-- Muzzle -->
+                    <circle cx="100" cy="145" r="35" fill="#deb887" />
+                    <circle cx="100" cy="130" r="10" fill="#3e2723" /> <!-- Nose -->
+                    <path d="M85 155 Q100 170 115 155" fill="none" stroke="#3e2723" stroke-width="3" stroke-linecap="round" />
+                    <!-- Eyes -->
+                    <g class="bear-eyes">
+                        <g class="eye-l-wrap">
+                            <circle cx="65" cy="100" r="12" fill="#fff" />
+                            <circle cx="65" cy="100" r="6" fill="#000" class="pupil-l" />
+                        </g>
+                        <g class="eye-r-wrap">
+                            <circle cx="135" cy="100" r="12" fill="#fff" />
+                            <circle cx="135" cy="100" r="6" fill="#000" class="pupil-r" />
+                        </g>
+                    </g>
+                    <!-- Hands with Fingers -->
+                    <g class="bear-hands">
+                        <g class="hand-l-wrap">
+                            <circle cx="35" cy="180" r="25" fill="#8d5524" />
+                            <rect x="52" y="145" width="10" height="25" rx="5" fill="#a0522d" /> <!-- Index -->
+                            <rect x="38" y="140" width="10" height="25" rx="5" fill="#a0522d" /> <!-- Middle -->
+                        </g>
+                        <g class="hand-r-wrap">
+                            <circle cx="165" cy="180" r="25" fill="#8d5524" />
+                            <rect x="138" y="145" width="10" height="25" rx="5" fill="#a0522d" /> <!-- Index -->
+                            <rect x="152" y="140" width="10" height="25" rx="5" fill="#a0522d" /> <!-- Middle -->
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="login-header">
+                <h2 class="gradient-text">مملكة حبنا</h2>
+                <p>أدخلي كلمة السر لتفتحي قلب محمد..</p>
+            </div>
+            <div class="login-form">
+                <input type="password" id="password-input" placeholder="كلمة السر..">
+                <button id="login-btn">دخول <i class='bx bxs-heart'></i></button>
+            </div>
+        </div>
+        <!-- Toast Notification for Login Status -->
+        <div id="login-toast" class="toast-hidden">
+            <div id="login-loader" class="loader"></div>
+            <span id="login-status-msg"></span>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="جنات - بحبك   Jannat - Bahbak.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-content">
+        <!-- Floating Hearts Background (Keep it subtle) -->
+        <canvas id="heartCanvas"></canvas>
+
+        <nav class="luxury-nav">
+            <div class="logo">مـحـمـد <i class='bx bxs-heart'></i> مـنـه</div>
+            <div class="music-player" id="music-toggle">
+                <div class="visualizer-wrap">
+                    <div class="visualizer">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <i class='bx bx-play-circle'></i>
+            </div>
+        </nav>
+
+        <header class="hero-minimal">
+            <div class="hero-grid">
+                <div class="hero-text-side">
+                    <span class="since-tag">منذ سنة ونصف..</span>
+                    <h1 class="main-heading">أنتِ كل حياتي</h1>
+                    <p class="hero-desc">يا أغلى إنسانة، حبيت أسجل هنا أجمل لحظاتنا اللي عدت.. قصة بدأت بصدفة حلوة، وبقت أغلى حاجة عندي، وهتكمل للأبد بإذن الله يا حبيبتي.</p>
+                    <div class="days-pill">
+                        <span><i class='bx bxs-calendar-heart'></i> <span id="days-count">0</span></span> يوماً من الحب
+                    </div>
+                </div>
+                <div class="hero-image-side">
+                    <div class="main-img-frame">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80" alt="Main Love" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <p>اسحبي للأسفل</p>
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <!-- Timeline Section -->
+            <section class="journey-grid">
+                <div class="section-title-wrapper">
+                    <h2 class="lux-title gradient-text">حكايتنا في سطور</h2>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop" alt="Beginning" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <span class="tag">البداية</span>
+                        <h3>بداية كل حاجة حلوة</h3>
+                        <p>عارفة، من ساعة ما عرفتك من سنة ونصف وحياتي اتغيرت 180 درجة. مكنتش مجرد صدفة، دي كانت أحلى حاجة حصلت لي في عمري كله.</p>
+                    </div>
+                </div>
+
+                <div class="journey-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1000&q=80" alt="Meeting" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <span class="tag">اللقاء الأول</span>
+                        <h3>لما عيوني شافت عيونك</h3>
+                        <p>فاكرة أول مرة نتقابل؟ اليوم ده عمري ما هنساه. كنت واقف مكسوف ومرتبك، بس أول ما شوفتك نسيت كل الكلام اللي كنت محضره.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fatiha Banner -->
+            <section class="fatiha-banner">
+                <div class="banner-overlay"></div>
+                <div class="banner-content">
+                    <div class="date-badge">
+                        <span class="d-day">01</span>
+                        <span class="d-sep">.</span>
+                        <span class="d-month">05</span>
+                        <span class="d-sep">.</span>
+                        <span class="d-year">2025</span>
+                    </div>
+                    <h2 class="banner-main-title">الحمد لله قرينا الفاتحة <i class='bx bxs-bookmarks'></i></h2>
+                    <p class="banner-subtext">خطوة جديدة نحو الأبد، وبداية لحلمنا اللي بنبنيه سوا يوم ورا يوم.</p>
+                </div>
+            </section>
+
+            <!-- Engagement Section -->
+            <section class="engagement-countdown">
+                <div class="engagement-card glass-box">
+                    <span class="tag">قريباً بإذن الله</span>
+                    <h2 class="gradient-text">يوم الخطوبة المنتظر</h2>
+                    <p class="date-info">ثالث أيام العيد <i class='bx bxs-magic-wand'></i></p>
+                    <p class="engagement-desc">اليوم اللي هنبني فيه أول خطوة حقيقية لمستقبلنا سوا. اليوم اللي هعلن فيه للعالم كله إنك بقيتي ليا، وإننا هنكمل سوا لآخر العمر بإذن الله.</p>
+                    <div class="heart-ring">
+                        <i class='bx bxs-heart-square'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Reasons Grid -->
+            <section class="reasons-minimal">
+                <h2 class="lux-title center gradient-text">ليـه بحبك؟</h2>
+                <div class="reason-items">
+                    <div class="r-item">
+                        <i class='bx bxs-heart-circle'></i>
+                        <h4>قلبك الطيب</h4>
+                        <p>لأنكِ بجد أنقى إنسانة قابلتها.</p>
+                    </div>
+                    <div class="r-item">
+                        <i class='bx bxs-star'></i>
+                        <h4>سندي</h4>
+                        <p>واقفة جنبي في كل وقت صعب.</p>
+                    </div>
+                    <div class="r-item">
+                        <i class='bx bxs-smile'></i>
+                        <h4>ضحكتك</h4>
+                        <p>هي اللي بتنورلي طريقي.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Heart -->
+            <section class="heart-pulse-section">
+                <div id="big-heart" class="lux-heart">
+                    <i class='bx bxs-heart'></i>
+                    <span>اضغطي هنا</span>
+                </div>
+            </section>
+
+            <!-- Favorite Message Section (Redesigned as a Premium Letter) -->
+            <section class="favorite-letter-section">
+                <div class="letter-wrapper glass-box">
+                    <div class="letter-stamp">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+                    <div class="letter-content">
+                        <div class="letter-header">
+                            <i class='bx bxs-quote-right quote-icon'></i>
+                            <h2 class="gradient-text">رسالتي المفضلة</h2>
+                        </div>
+                        <div class="letter-body">
+                            <p class="romantic-text">
+                                "وانت عندي بالدنيا كلها ي حمودي ولو فضلت اتكلم عن حبك ف قلبي مش هقدر اوصفلك حبي ي روحي وحياتي انت انت الراجل السند ليا انت الضهر ال ليا بعد اخويا ي حبيبي انت اغلي حاجه ف حياتي ي نور عيني انت الحاجه ال وحيده ال مينفعش تبقي ذكري ولو ضاعت مني هفقد الثقه ف كل ال حاوليا عايزاك تكون عارف اني مليش غيرك ي حبيبي وان مهما حصل هفضل ماسكه فيك انا لاقيت فيك ال عمري ما هلاقيه ف حد تاني ي نور عيني ستبقي ف عيوني اجمل ما أري وستبقي ف روحي اغلي ما املك عارفه اني بزعلك كتير بس فدايا انت كل حاجه ليا ي عيوني عاوزاك تعرف ان مهما حصل هتفضل اغلي ما عندي وهتفضل انت الدنيا كلها ليا بالرغم من المشاكل ال بتحصل هتفضل انت اغلي حاجه ف حياتي انا بحبك وهستحمل كل دا عشان نكمل ي حبيب عيوني انت ال التوب والباقي كله فتشوب ي واد ي حمودي"
+                            </p>
+                        </div>
+                        <div class="letter-footer">
+                            <span class="signature-line"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Letter -->
+            <section class="final-letter">
+                <div class="letter-paper">
+                    <h3>لكل حياتي..</h3>
+                    <p>عدى سنة ونصف، وفي كل يوم بكتشف فيكي حاجة جديدة تخليني أحبك أكتر بكتير من اليوم اللي قبله. أنتِ مش بس خطيبتي، أنتِ شريكة عمري وروحي اللي مقدرش أعيش من غيرها.</p>
+                    <p>بوعدك قدام نفسي وقدام ربنا إني هعمل كل اللي أقدر عليه عشان أشوفك مبسوطة ومرتاحة دايماً. أنتِ أحلى رزق في حياتي.</p>
+                    <div class="signature">حبيبك المخلص محمد <i class='bx bxs-heart'></i></div>
+                </div>
+            </section>
+        </main>
+
+            <!-- WhatsApp Chat Section (New) -->
+            <section class="chat-section" id="chat-trigger">
+                <h2 class="lux-title center gradient-text">أول كلماتنا..</h2>
+                <div class="tablet-frame">
+                    <div class="tablet-screen">
+                        <div class="chat-header">
+                            <div class="user-info">
+                                <div class="avatar">م</div>
+                                <div class="status">
+                                    <span class="name">منه قلبي</span>
+                                    <span class="online">متصل الآن</span>
+                                </div>
+                            </div>
+                            <div class="header-icons">
+                                <i class='bx bx-video'></i>
+                                <i class='bx bx-phone'></i>
+                            </div>
+                        </div>
+                        <div class="chat-body" id="chat-box">
+                            <!-- Messages will be injected by JS -->
+                        </div>
+                        <div class="chat-footer">
+                            <i class='bx bx-plus'></i>
+                            <div class="input-sim">اكتب رسالة..</div>
+                            <i class='bx bx-microphone'></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <footer class="lux-footer">
+            <div class="footer-content">
+                <div class="footer-logo">مـحـمـد <i class='bx bxs-heart'></i> مـنـه</div>
+                <p class="footer-blurb">كل لحظة معاكي هي بداية لقصة حب مابتخلصش، ربنا يبارك لي فيكي وتفضلي منورة حياتي للأبد.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                </div>
+                <div class="footer-divider"></div>
+                <p class="footer-copy">صُنع بكل حب <i class='bx bxs-heart'></i> | 2025</p>
+            </div>
+        </footer>
+
+        <!-- Secret Modal -->
+        <div id="secret-modal" class="modal">
+            <div class="modal-content glass-box">
+                <span class="close-modal">&times;</span>
+                <p class="modal-msg">انتي اجمل حاجه ربنا رزقني بيها في الدنيا بحبك فوق ما تتخيلي ياحبيبتي <i class='bx bxs-heart'></i></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
