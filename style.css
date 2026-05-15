@@ -1258,6 +1258,85 @@ body {
 
 .footer-copy i { color: var(--accent); }
 
+#typewriter-footer::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    margin-right: 5px;
+    color: var(--secondary);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Eternal Vows Section */
+.eternal-vows {
+    padding: 120px 8%;
+    background: linear-gradient(to bottom, #fff, #fff0f3);
+}
+
+.vows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.vow-card {
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.vow-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    background: #fff;
+    border-color: var(--secondary);
+    box-shadow: 0 30px 60px rgba(74, 14, 14, 0.1);
+}
+
+.vow-icon-wrap {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+    transform: rotate(-10deg);
+    transition: 0.5s;
+    box-shadow: 0 10px 25px rgba(74, 14, 14, 0.2);
+}
+
+.vow-card:hover .vow-icon-wrap {
+    transform: rotate(0deg) scale(1.1);
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+}
+
+.vow-icon-wrap i {
+    font-size: 3.5rem;
+    color: var(--white);
+}
+
+.vow-card h3 {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.vow-card p {
+    color: #666;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
 /* Responsive */
 @media screen and (max-width: 992px) {
     .luxury-nav { top: 0; left: 0; right: 0; border-radius: 0; padding: 10px 5%; }

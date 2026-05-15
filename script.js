@@ -219,12 +219,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatBox = document.getElementById('chat-box');
     const chatTrigger = document.getElementById('chat-trigger');
     const messages = [
-        { type: 'sent', text: 'بقولك إيه ياروحي..' },
-        { type: 'received', text: 'نعم ياحبيبي؟' },
-        { type: 'sent', text: 'أنا بحبك أوي بجد، ومقدرش أتخيل حياتي من غيرك.' },
-        { type: 'received', text: 'وأنا كمان بحبك أوي يا محمد، ربنا يخليك ليا.' },
-        { type: 'sent', text: 'إن شاء الله هنكمل سوا العمر كله، وتكوني من نصيبي للأبد.' },
-        { type: 'received', text: 'يا رب يا حبيبي.. أنا معاك في كل خطوة.' }
+        { type: 'received', text: 'محمد انا جايلي عريس وانا عاوزك انت وكده 🥺' },
+        { type: 'sent', text: 'عمري مهسيبك وهجيلك وانا جاي قريب يا روحي ❤️' },
+        { type: 'received', text: 'انا بحبك اوي وعايزك وانت الحاجه الحلوه في حياتي ومقدرش استغني عنك ❤️' },
+        { type: 'sent', text: 'وانا كمان بحبك واكون في بيتك ووسط اهلك والكلام ده كله هيتحقق قريب 😍' },
+        { type: 'received', text: 'بجد يا محمد؟ يعني خلاص هبقى ملكك رسمي؟ 🥹' },
+        { type: 'sent', text: 'طبعاً يا قلبي، أنتي من نصيبي ومحدش هياخدك مني أبداً ❤️' },
+        { type: 'received', text: 'ربنا يخليك ليا يا سندي، أنا من غيرك ولا حاجة بجد ❤️' },
+        { type: 'sent', text: 'وأنا مقدرش أعيش من غيرك يا نبض قلبي، أنتي الأمان بتاعي ❤️' },
+        { type: 'received', text: 'وانا بحبك اوي يا حمودي ❤️' },
+        { type: 'sent', text: 'وانا كمان بحبك يا نبض قلبي ❤️' }
     ];
 
     let chatStarted = false;
@@ -276,4 +280,27 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.remove('scrolled');
         }
     });
+
+    // 10. Typewriter for Footer
+    const footerText = "كل لحظة معاكي هي بداية لقصة حب مابتخلصش، ربنا يبارك لي فيكي وتفضلي منورة حياتي للأبد.";
+    const footerEl = document.getElementById('typewriter-footer');
+    let footerIndex = 0;
+    let typingStarted = false;
+
+    function typeFooter() {
+        if (footerIndex < footerText.length) {
+            footerEl.innerHTML += footerText.charAt(footerIndex);
+            footerIndex++;
+            setTimeout(typeFooter, 50);
+        }
+    }
+
+    const footerObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !typingStarted) {
+            typingStarted = true;
+            typeFooter();
+        }
+    }, { threshold: 0.5 });
+
+    if (footerEl) footerObserver.observe(footerEl);
 });
